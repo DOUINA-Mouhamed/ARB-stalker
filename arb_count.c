@@ -211,7 +211,7 @@ int main(int argc, char *argv[]) {
         printf("\033[1;36mCurrent ARB value in EUR:\033[0m \033[1;37m%.5fE\033[0m\n", currentPrice);
 
         /* display the totals */
-        printf("\033[1;32mTotal invested (tax included):\033[0m \033[1;37m%.2fE\033[0m\n", totalInvested);
+        printf("\033[1;32mTotal invested (taxes included):\033[0m \033[1;37m%.2fE\033[0m\n", totalInvested);
         printf("\033[1;34mTotal Arbitrum in possession:\033[0m \033[1;37m%.2fARB\033[0m\n", totalARB);
 
     } else if (argc == 3 && strcmp(argv[1], "-t") == 0) {
@@ -225,7 +225,7 @@ int main(int argc, char *argv[]) {
         printf("\033[1;36mCurrent ARB value in EUR:\033[0m \033[1;37m%.5fE\033[0m\n", currentPrice);
 
         /* display the totals */
-        printf("\033[1;32mTotal invested (tax included):\033[0m \033[1;37m%.2fE\033[0m\n", totalInvested);
+        printf("\033[1;32mTotal invested (taxes included):\033[0m \033[1;37m%.2fE\033[0m\n", totalInvested);
         printf("\033[1;34mTotal Arbitrum in possession:\033[0m \033[1;37m%.2fARB\033[0m\n", totalARB);
 
     } else if (argc == 3 && strcmp(argv[1], "-s") == 0) {
@@ -235,7 +235,7 @@ int main(int argc, char *argv[]) {
         float currentValue = currentPrice * totalARB;
         float difference = currentValue - totalInvested - cashOutTax; /* include cash-out tax in the calculation */
 
-        printf("\033[1;32mTotal invested (tax included):\033[0m \033[1;37m%.2fE\033[0m\n", totalInvested);
+        printf("\033[1;32mTotal invested (taxes included):\033[0m \033[1;37m%.2fE\033[0m\n", totalInvested);
 
         printf("\033[1;34mTotal Arbitrum in possession:\033[0m \033[1;37m%.2fARB\033[0m\n", totalARB);
 
