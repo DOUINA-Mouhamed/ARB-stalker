@@ -2,7 +2,7 @@
 ** File:        arb_count.c
 **
 ** Created by:  DOUINA Mouhamed
-** GitHub : DOUINA-Mouhamed
+** GitHub :     DOUINA-Mouhamed
 */
 
 #include <stdio.h>
