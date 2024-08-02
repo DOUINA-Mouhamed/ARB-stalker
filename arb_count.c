@@ -181,15 +181,16 @@ float fetchArbPrice() {
 void displayHelp(const char *programName) {
     printf("Usage: %s [options] <filename>\n", programName);
     printf("\nOptions:\n");
-    printf("  -h               Display this help message and exit.\n");
-    printf("  -t <filename>    Add a new transaction to the specified file.\n");
-    printf("  -s <filename>    Calculate and display the potential profit/loss based on the current ARB price.\n");
-    printf("  <filename>       Calculate the total investment and ARB in possession.\n");
+    printf("  -h                Display this help message and exit.\n");
+    printf("  -t <filename>     Add a new transaction to the specified file.\n");
+    printf("  -s <filename>     Calculate and display the potential profit/loss based on the current ARB price.\n");
+    printf("  --simulate <price> <filename>  Simulate profit/loss with a hypothetical ARB price.\n");
+    printf("  <filename>        Calculate the total investment and ARB in possession.\n");
 }
 
 int main(int argc, char *argv[]) {
     if (argc < 2) {
-        fprintf(stderr, "Usage: %s [-h] [-t] [-s] <filename>\n", argv[0]);
+        fprintf(stderr, "Usage: %s [-h] [-t] [-s] [--simulate] <filename>\n", argv[0]);
         return EXIT_FAILURE;
     }
 
@@ -246,9 +247,27 @@ int main(int argc, char *argv[]) {
         } else {
             printf("\033[1;31mLoss:\033[0m \033[1;37m%.2fE\033[0m\n", difference);
         }
+    } else if (argc == 4 && strcmp(argv[1], "--simulate") == 0) {
+        /* --simulate flag, calculate potential profit/loss with a given ARB price */
+        float simulatedPrice = atof(argv[2]);
+        calculateTotal(argv[3], &totalInvested, &totalARB);
+        float simulatedValue = simulatedPrice * totalARB;
+        float simulatedDifference = simulatedValue - totalInvested - cashOutTax;
+
+        printf("\033[1;32mTotal invested (taxes included):\033[0m \033[1;37m%.2fE\033[0m\n", totalInvested);
+
+        printf("\033[1;34mTotal Arbitrum in possession:\033[0m \033[1;37m%.2fARB\033[0m\n", totalARB);
+
+        printf("\033[1;36mSimulated ARB value in EUR:\033[0m \033[1;37m%.2fE\033[0m\n", simulatedValue);
+
+        if (simulatedDifference > 0) {
+            printf("\033[1;32mSimulated Profit:\033[0m \033[1;37m%.2fE\033[0m\n", simulatedDifference);
+        } else {
+            printf("\033[1;31mSimulated Loss:\033[0m \033[1;37m%.2fE\033[0m\n", simulatedDifference);
+        }
     } else {
         /* incorrect usage */
-        fprintf(stderr, "Usage: %s [-h] [-t] [-s] <filename>\n", argv[0]);
+        fprintf(stderr, "Usage: %s [-h] [-t] [-s] [--simulate] <filename>\n", argv[0]);
         return EXIT_FAILURE;
     }
 
