@@ -35,6 +35,8 @@ Chocolatey is a package manager for Windows that simplifies the installation of 
    iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
    ```
 
+Or see  [Chocolatey official documentation]([https://link-url-here.org](https://chocolatey.org/install)).
+
 3. Close and reopen PowerShell to refresh the environment variables.
 
 ### Step 2: Install Node.js 🌳
