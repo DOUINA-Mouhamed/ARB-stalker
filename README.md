@@ -1,4 +1,4 @@
-# ARB__stalker 👓
+# ARB stalker 👓
 
 
 ## Introduction 🚀
@@ -224,7 +224,3 @@ Loss: -2.64E
 ## Contributing 🤝
 
 Contributions are welcome! If you have ideas for improvements or encounter bugs, feel free to fork the repository and submit a pull request.
-
-## License 🗞️
-
-This project is licensed under the MIT License - see the LICENSE file for details.
