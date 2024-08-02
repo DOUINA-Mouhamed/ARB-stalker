@@ -1,0 +1,13 @@
+{
+  "name": "arb_count",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fetchArbPrice.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "node-fetch": "^3.0.0"
+  }
+}
