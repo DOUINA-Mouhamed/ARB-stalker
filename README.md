@@ -21,6 +21,6 @@
 - Node.js
 - GCC (GNU Compiler Collection)
 
-## Installation Guide
+## Installation Guide 🧭
 
 [Click here to access the tutorial.](documentation/TUTORIAL.md)
