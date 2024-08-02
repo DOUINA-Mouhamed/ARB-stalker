@@ -4,7 +4,9 @@
 
 **ARB Count** is a command-line tool designed to help users manage and evaluate their investments in Arbitrum (ARB) cryptocurrency. The program allows users to track transactions, calculate total investments, and determine potential profits or losses based on the current ARB price. This tool is particularly useful for cryptocurrency enthusiasts and traders who want to keep a close eye on their ARB investments.
 
-
+<p align="center">
+    <img src="documentation/assets/simulation.png" alt="Simulation" width="600"/>
+</p>
 
 ## Features 🪶
 
