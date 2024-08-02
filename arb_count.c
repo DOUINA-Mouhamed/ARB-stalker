@@ -185,10 +185,6 @@ void displayHelp(const char *programName) {
     printf("  -t <filename>    Add a new transaction to the specified file.\n");
     printf("  -s <filename>    Calculate and display the potential profit/loss based on the current ARB price.\n");
     printf("  <filename>       Calculate the total investment and ARB in possession.\n");
-    printf("\nExamples:\n");
-    printf("  %s transactions.txt          Calculate total investment and ARB in possession.\n", programName);
-    printf("  %s -t transactions.txt       Add a new transaction.\n", programName);
-    printf("  %s -s transactions.txt       Calculate profit/loss.\n", programName);
 }
 
 int main(int argc, char *argv[]) {
