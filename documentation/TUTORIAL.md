@@ -184,9 +184,6 @@ Loss: -2.64E
 ## Explanation of Flags ☑️
 
 - **`-h`**: Display help information about the program and its usage.
-- **`-t <filename>`**: Add a new transaction to the specified file, prompting the user for details.
-- **`-s <filename>`**: Calculate potential profit or loss based on the current ARB price, considering a 1 EUR cash-out tax.
-- **`<filename>`**: Calculate total investment and ARB holdings from the provided transaction file.
 
 ## Notes 📔
 
