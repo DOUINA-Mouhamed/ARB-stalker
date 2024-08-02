@@ -239,7 +239,6 @@ int main(int argc, char *argv[]) {
         float currentValue = currentPrice * totalARB;
         float difference = currentValue - totalInvested - cashOutTax; /* include cash-out tax in the calculation */
 
-
         printf("\033[1;32mTotal invested (tax included):\033[0m \033[1;37m%.2fE\033[0m\n", totalInvested);
 
         printf("\033[1;34mTotal Arbitrum in possession:\033[0m \033[1;37m%.2fARB\033[0m\n", totalARB);
