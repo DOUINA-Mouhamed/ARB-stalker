@@ -10,7 +10,7 @@
 #include <string.h>
 #include <ctype.h>
 
-/* function to handle input errors and ensure valid input */ 
+/* function to handle input errors and ensure valid input */
 void userInputError(const char *prompt, int min, int max, int *value) {
     int valid = 0;
     while (!valid) {
@@ -32,13 +32,13 @@ void userInputError(const char *prompt, int min, int max, int *value) {
     }
 }
 
-/* function to handle input errors for float values */ 
+/* function to handle input errors for float values */
 void userInputErrorFloat(const char *prompt, float *value) {
     int valid = 0;
     while (!valid) {
         printf("%s", prompt);
         if (scanf("%f", value) != 1) {
-            /* check for EOF (Ctrl+D) */ 
+            /* check for EOF (Ctrl+D) */
             if (feof(stdin)) {
                 printf("\nEOF detected. Exiting.\n");
                 exit(EXIT_FAILURE);
@@ -54,7 +54,7 @@ void userInputErrorFloat(const char *prompt, float *value) {
     }
 }
 
-/* function to add a new transaction to the file */ 
+/* function to add a new transaction to the file */
 void addTransaction(const char *filename) {
     FILE *file;
     int day, month, year;
@@ -177,9 +177,23 @@ float fetchArbPrice() {
     return arbPrice;
 }
 
+/* function to display help information */
+void displayHelp(const char *programName) {
+    printf("Usage: %s [options] <filename>\n", programName);
+    printf("\nOptions:\n");
+    printf("  -h               Display this help message and exit.\n");
+    printf("  -t <filename>    Add a new transaction to the specified file.\n");
+    printf("  -s <filename>    Calculate and display the potential profit/loss based on the current ARB price.\n");
+    printf("  <filename>       Calculate the total investment and ARB in possession.\n");
+    printf("\nExamples:\n");
+    printf("  %s transactions.txt          Calculate total investment and ARB in possession.\n", programName);
+    printf("  %s -t transactions.txt       Add a new transaction.\n", programName);
+    printf("  %s -s transactions.txt       Calculate profit/loss.\n", programName);
+}
+
 int main(int argc, char *argv[]) {
     if (argc < 2) {
-        fprintf(stderr, "Usage: %s [-t] [-s] <filename>\n", argv[0]);
+        fprintf(stderr, "Usage: %s [-h] [-t] [-s] <filename>\n", argv[0]);
         return EXIT_FAILURE;
     }
 
@@ -187,7 +201,11 @@ int main(int argc, char *argv[]) {
     float totalARB = 0.0f;
     float cashOutTax = 1.0f; /* cash-out tax of 1 EUR */
 
-    if (argc == 2) {
+    if (argc == 2 && strcmp(argv[1], "-h") == 0) {
+        /* -h flag, display help information */
+        displayHelp(argv[0]);
+        return EXIT_SUCCESS;
+    } else if (argc == 2) {
         /* no flag, just calculate the total investment and ARB in possession */
         calculateTotal(argv[1], &totalInvested, &totalARB);
 
@@ -235,7 +253,7 @@ int main(int argc, char *argv[]) {
         }
     } else {
         /* incorrect usage */
-        fprintf(stderr, "Usage: %s [-t] [-s] <filename>\n", argv[0]);
+        fprintf(stderr, "Usage: %s [-h] [-t] [-s] <filename>\n", argv[0]);
         return EXIT_FAILURE;
     }
 
